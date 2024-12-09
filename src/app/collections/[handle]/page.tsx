@@ -46,13 +46,14 @@ export default async function CategoryPage({
   } = await getProductsByPage(handle, currentPage, perPage);
 
   const renderedProducts = products.map(
-    ({ id, title, price, imageUrl, handle: productHandle }) => (
+    ({ id, title, price, imageUrl, handle: productHandle }, index) => (
       <ProductCard
         key={id}
         title={title}
         price={price}
         imageUrl={imageUrl}
         productUrl={`/products/${productHandle}`}
+        isPriority={index < 2}
       />
     )
   );

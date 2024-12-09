@@ -1,7 +1,7 @@
 export const ProductCardSkeleton: React.FC = () => {
   return (
     <div
-      className="animate-pulse hover:shadow-lg focus:outline-blue-500 bg-gray-100 rounded-lg"
+      className="animate-pulse hover:shadow-lg focus:outline-blue-500 bg-gray-100 rounded-lg h-fit"
       aria-hidden="true"
     >
       <div className="h-48 bg-gray-300 rounded-t-lg"></div>
