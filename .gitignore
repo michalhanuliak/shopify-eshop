@@ -45,4 +45,7 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
+
+#storybook
+storybook-static/
 *storybook.log
