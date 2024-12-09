@@ -24,6 +24,7 @@ interface ProductCardProps {
   price: string;
   imageUrl?: string;
   productUrl: string;
+  isPriority?: boolean;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -31,6 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   price,
   imageUrl,
   productUrl,
+  isPriority = false,
 }) => {
   const router = useRouter();
 
@@ -65,9 +67,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               src={imageUrl}
               alt={title}
               className="mx-auto brightness-[0.95] object-contain w-auto h-auto"
-              width={180}
-              height={150}
-              priority
+              width={256}
+              height={256}
+              priority={isPriority}
             />
           </div>
         )}
