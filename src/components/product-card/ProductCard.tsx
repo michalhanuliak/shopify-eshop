@@ -8,7 +8,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MouseEvent, useId } from "react";
+import { useId } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -36,17 +36,29 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleAddToCart = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const handleAddToCart = () => {
     alert(`Added ${title} to cart`);
+  };
+
+  const handleBuyNow = () => {
+    alert(`Buying ${title}`);
   };
 
   const handleRedirect = () => {
     router.push(productUrl);
   };
 
-  const { pressProps } = usePress({
+  const { pressProps: pressPropsRedirect } = usePress({
     onPress: handleRedirect,
+  });
+
+  const { pressProps: pressPropsAddToCart } = usePress({
+    onPress: handleAddToCart,
+  });
+
+  const { pressProps: pressPropsBuyNow } = usePress({
+    onPress: handleBuyNow,
+    isDisabled: true,
   });
 
   const titleId = useId();
@@ -54,11 +66,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <Card
       className="hover:shadow-lg hover:cursor-pointer focus:outline-blue-500"
-      onClick={handleRedirect}
       tabIndex={0}
       aria-labelledby={titleId}
       aria-description="View product details"
-      {...pressProps}
+      {...pressPropsRedirect}
     >
       <CardHeader>
         {imageUrl && (
@@ -66,7 +77,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <Image
               src={imageUrl}
               alt={title}
-              className="mx-auto brightness-[0.95] object-contain w-auto h-auto"
+              className="mx-auto brightness-[0.95] object-contain"
               width={256}
               height={256}
               priority={isPriority}
@@ -83,18 +94,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <p className="text-gray-600 font-semibold">{price}</p>
       </CardContent>
 
-      <CardFooter className="grid grid-cols-2 gap-2">
+      <CardFooter className="grid grid-cols-2 gap-2 position-relative">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button
-                variant="outline"
-                className="w-full"
-                disabled
-                aria-disabled
-              >
-                Buy now
-              </Button>
+              <span className="inline-block w-full" aria-disabled="true">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  disabled
+                  {...pressPropsBuyNow}
+                >
+                  Buy now
+                </Button>
+              </span>
             </TooltipTrigger>
 
             <TooltipContent>
@@ -103,7 +116,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </Tooltip>
         </TooltipProvider>
 
-        <Button onClick={handleAddToCart}>Add to cart</Button>
+        <Button {...pressPropsAddToCart}>Add to cart</Button>
       </CardFooter>
     </Card>
   );
