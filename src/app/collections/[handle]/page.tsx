@@ -52,7 +52,7 @@ export default async function CategoryPage({
         title={title}
         price={price}
         imageUrl={imageUrl}
-        handle={productHandle}
+        productUrl={`/products/${productHandle}`}
       />
     )
   );

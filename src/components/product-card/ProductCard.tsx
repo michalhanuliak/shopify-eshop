@@ -23,14 +23,14 @@ interface ProductCardProps {
   title: string;
   price: string;
   imageUrl?: string;
-  handle: string;
+  productUrl: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   title,
   price,
   imageUrl,
-  handle,
+  productUrl,
 }) => {
   const router = useRouter();
 
@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   const handleRedirect = () => {
-    router.push(`/products/${handle}`);
+    router.push(productUrl);
   };
 
   const { pressProps } = usePress({

@@ -6,6 +6,7 @@ import {
   GetProductByHandleQuery,
 } from "@/graphql/generated-types";
 import { ProductDetail } from "@/domain";
+import { notFound } from "next/navigation";
 
 export const fetchProductByHandle = async (
   handle: string
@@ -16,7 +17,7 @@ export const fetchProductByHandle = async (
   >(GET_PRODUCT_BY_HANDLE, { handle });
 
   if (!data.productByHandle) {
-    throw new Error(`Product with handle "${handle}" not found.`);
+    notFound();
   }
 
   return mapProduct(data.productByHandle);

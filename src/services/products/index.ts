@@ -6,6 +6,7 @@ import {
 } from "@/graphql/generated-types";
 import { mapProducts } from "./response-mapper";
 import { ProductPreview } from "@/domain";
+import { notFound } from "next/navigation";
 
 interface FetchProductsResult {
   id: string;
@@ -34,7 +35,7 @@ export const fetchProductsByCategoryHandle = async (
   });
 
   if (!data.collectionByHandle) {
-    throw new Error(`Collection with handle "${handle}" not found.`);
+    notFound();
   }
 
   const collection = data.collectionByHandle;

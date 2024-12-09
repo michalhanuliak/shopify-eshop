@@ -14,7 +14,7 @@ export default async function CategoryLayout({
   } = await getProductsByPage(handle, 1, 1);
 
   return (
-    <div className="container mx-auto p-4 min-h-screen ">
+    <div className="container mx-auto p-4 min-h-screen grid grid-rows-[4rem_auto]">
       <nav>
         <ul className="flex items-center gap-4 mb-6 text-xl">
           <li>
