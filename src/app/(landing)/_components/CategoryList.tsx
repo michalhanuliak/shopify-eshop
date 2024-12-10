@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { CategoryCard } from "../../../components/category-card/CategoryCard";
 import { Category } from "@/domain";
 
-interface CategoryListProps {
+type CategoryListProps = {
   categories: Category[];
-}
+};
 
-export const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
+export function CategoryList({ categories }: CategoryListProps) {
   const router = useRouter();
 
   const handleRedirect = (handle: string) => {
@@ -34,4 +34,4 @@ export const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
       {renderedCategories}
     </div>
   );
-};
+}

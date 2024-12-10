@@ -1,4 +1,4 @@
-export const ProductCardSkeleton: React.FC = () => {
+export function ProductCardSkeleton() {
   return (
     <div
       className="animate-pulse hover:shadow-lg focus:outline-blue-500 bg-gray-100 rounded-lg h-fit"
@@ -18,4 +18,4 @@ export const ProductCardSkeleton: React.FC = () => {
       </div>
     </div>
   );
-};
+}

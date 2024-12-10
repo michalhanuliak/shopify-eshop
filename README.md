@@ -52,13 +52,13 @@ cp .env.example .env
 
 ```bash
 
-GRAPHQL_ENDPOINT=your_shopify_api_here
+SHOPIFY_DOMAIN=your_shopify_api_here
 
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_token_here
 
 ```
 
-The `GRAPHQL_ENDPOINT` and `SHOPIFY_STOREFRONT_ACCESS_TOKEN` should be configured with valid credentials. If you do not have a token, you can create or request one from the appropriate source (e.g., Shopify).
+The `SHOPIFY_DOMAIN` and `SHOPIFY_STOREFRONT_ACCESS_TOKEN` should be configured with valid credentials. If you do not have a token, you can create or request one from the appropriate source (e.g., Shopify).
 
 ## Available Scripts
 

@@ -19,21 +19,21 @@ import { useRouter } from "next/navigation";
 import { usePress } from "@react-aria/interactions";
 import Image from "next/image";
 
-interface ProductCardProps {
+type ProductCardProps = {
   title: string;
   price: string;
   imageUrl?: string;
   productUrl: string;
   isPriority?: boolean;
-}
+};
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+export function ProductCard({
   title,
   price,
   imageUrl,
   productUrl,
   isPriority = false,
-}) => {
+}: ProductCardProps) {
   const router = useRouter();
 
   const handleAddToCart = () => {
@@ -120,4 +120,4 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </CardFooter>
     </Card>
   );
-};
+}

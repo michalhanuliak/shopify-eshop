@@ -1,19 +1,19 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-interface PaginationProps {
+type PaginationProps = {
   currentPage: number;
   totalPages: number;
   nextPagePath: string;
   prevPagePath: string;
-}
+};
 
-export const Pagination: React.FC<PaginationProps> = ({
+export function Pagination({
   currentPage,
   totalPages,
   nextPagePath,
   prevPagePath,
-}) => {
+}: PaginationProps) {
   return (
     <nav
       aria-label="Pagination"
@@ -53,4 +53,4 @@ export const Pagination: React.FC<PaginationProps> = ({
       </ul>
     </nav>
   );
-};
+}

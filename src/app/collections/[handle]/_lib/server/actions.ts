@@ -7,7 +7,6 @@ export async function getProductsByPage(
   page: number,
   first: number = 10
 ) {
-  // Simulate cursor mapping for demo purposes
   const { cursors, totalPages } = await generateCursorMap(handle, first);
   const afterCursor = page <= 1 ? null : cursors[page - 2];
 

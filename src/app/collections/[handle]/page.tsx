@@ -3,10 +3,10 @@ import { Pagination } from "./_components/Pagination";
 
 import { getProductsByPage } from "./_lib/server/actions";
 
-interface CategoryPageProps {
+type CategoryPageProps = {
   params: Promise<{ handle: string }>;
   searchParams?: Promise<{ page?: string }>;
-}
+};
 
 export async function generateMetadata({ params }: CategoryPageProps) {
   const { handle } = await params;
