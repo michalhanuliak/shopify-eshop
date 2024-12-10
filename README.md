@@ -18,8 +18,6 @@ eShop is a Next.js-based frontend application for a shop-like experience. It uti
 
 - Storybook
 
-- Folder Structure
-
 - Additional Notes
 
 ## Prerequisites
@@ -32,7 +30,7 @@ eShop is a Next.js-based frontend application for a shop-like experience. It uti
 
 ```bash
 
-cd eshop
+cd shopify-eshop
 
 npm install
 
@@ -42,11 +40,11 @@ npm install
 
 The project requires environment variables to function correctly, particularly for interacting with the GraphQL endpoint. A sample `.env.example` file is provided for your convenience. To set up your environment variables:
 
-1. Copy `.env.example` to `.env.local`:
+1. Copy `.env.example` to `.env`:
 
 ```bash
 
-cp .env.example .env.local
+cp .env.example .env
 
 ```
 
