@@ -48,7 +48,7 @@ cp .env.example .env
 
 ```
 
-2. Update the values in `.env.local`:
+2. Update the values in `.env`:
 
 ```bash
 
